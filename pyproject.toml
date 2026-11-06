@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling==1.33.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "panda-web-security-tools"
+version = "0.1.0"
+description = "Panda Web Security Tools: Site, email and agent safety: SPF/DKIM/DMARC audits, AI/SEO readiness, website change monitoring, hidden AI instructions scanner."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [{ name = "Panda Federation (pandadad0214)" }]
+keywords = ["mcp", "mcp-server", "apify", "panda-federation", "web-security"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Typing :: Typed",
+]
+dependencies = [
+  "panda-federation-tools @ git+https://github.com/pandadad0214/panda-federation-tools.git@v1.4.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/pandadad0214/panda-web-security-tools"
+Source = "https://github.com/pandadad0214/panda-web-security-tools"
+"Umbrella index" = "https://github.com/pandadad0214/panda-federation-tools"
+"Apify Store" = "https://apify.com/pandadad0214"
+
+[project.scripts]
+panda-web-security-tools = "panda_web_security_tools.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/panda_web_security_tools"]
