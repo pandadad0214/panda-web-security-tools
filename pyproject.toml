@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "panda-web-security-tools"
 version = "0.1.0"
-description = "Panda Web Security Tools: Site, email and agent safety: SPF/DKIM/DMARC audits, AI/SEO readiness, website change monitoring, hidden AI instructions scanner."
+description = "Panda Web Security Tools: site, email and agent safety: SPF/DKIM/DMARC audits, AI/SEO readiness, website change monitoring, hidden AI instructions scanner, bulk domain WHOIS/expiry."
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
@@ -23,7 +23,7 @@ classifiers = [
   "Typing :: Typed",
 ]
 dependencies = [
-  "panda-federation-tools>=1.4.0,<2",
+  "panda-federation-tools>=1.6.0,<2",
 ]
 
 [project.urls]
