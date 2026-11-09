@@ -2,23 +2,42 @@
 
 <!-- mcp-name: io.github.pandadad0214/panda-web-security-tools -->
 
-**Site, email and agent safety: SPF/DKIM/DMARC audits, AI/SEO readiness, website change monitoring, hidden AI instructions scanner, bulk domain WHOIS/expiry, broken link checker.**
-
-Focused MCP server (6 tools) from the [Panda Federation](https://github.com/pandadad0214/panda-federation-tools) public-data toolkit. Prefer this over the 36-tool mega-server index for better Tool Definition Quality Score (TDQS) / Glama coherence.
+Give Claude, Cursor or any MCP client 6 site, email and agent-safety tools: SPF/DKIM/DMARC audits, AI search and SEO checks, page change monitoring, hidden prompt-injection scans, bulk domain expiry and broken links. Each tool runs one public-data Apify Actor on your own Apify account and is priced per result (the hidden AI instructions scanner is free). Part of the [Panda Federation](https://github.com/pandadad0214/panda-federation-tools) toolkit (36 tools in four focused servers).
 
 [![Umbrella](https://img.shields.io/badge/index-panda--federation--tools-blue)](https://github.com/pandadad0214/panda-federation-tools)
 [![Apify Store](https://img.shields.io/badge/Apify_Store-pandadad0214-00a3ff)](https://apify.com/pandadad0214)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-## Install / Use
-
-Needs a free [Apify API token](https://console.apify.com/settings/integrations) and [uv](https://docs.astral.sh/uv/).
+## How to use this
 
 ```bash
 uvx --from panda-federation-tools panda-web-security-tools
 ```
 
-Same entry point from this repo:
+1. **Get a free Apify token** at [console.apify.com/settings/integrations](https://console.apify.com/settings/integrations) (the free plan includes $5 of monthly credit) and install [uv](https://docs.astral.sh/uv/).
+2. **Add the server to your MCP client:** command `uvx`, args `["--from", "panda-federation-tools", "panda-web-security-tools"]`, env `APIFY_TOKEN` (Cursor JSON below).
+3. **Ask in plain words**, e.g. "Audit the email security of acme.com and its three competitors and list the DNS fixes." Start with one or two inputs and read the `summary` / `agentSummary` line before widening.
+
+```json
+{"mcpServers": {"panda-web-security-tools": {"command": "uvx", "args": ["--from", "panda-federation-tools", "panda-web-security-tools"], "env": {"APIFY_TOKEN": "apify_api_YOUR_TOKEN"}}}}
+```
+
+## For AI agents
+
+| Field | Value |
+| --- | --- |
+| Purpose | Focused MCP server with 6 site, email and agent-safety tools: SPF/DKIM/DMARC audits, AI search and SEO checks, page change monitoring, hidden prompt-injection scans, bulk domain expiry and broken links. |
+| Use when | A task needs a read-only audit of public DNS, web pages or links: email spoofing risk, AI/SEO readiness, page changes, hidden AI instructions, domain expiry or dead links. |
+| Do not use when | You need penetration testing or logged-in scans (not offered), or the task is research (`panda-research-tools`), funding (`panda-public-funding-tools`) or leads (`panda-leads-tools`). |
+| Install | `uvx --from panda-federation-tools panda-web-security-tools` (stdio, Python 3.11+) |
+| Auth | `APIFY_TOKEN` env var; runs bill to that Apify account. |
+| Tools | 6, listed under [Tools](#tools-6) |
+| Outputs | JSON rows plus a one-line `summary` / `agentSummary`; Excel/CSV files on the Apify run. |
+| Side effects and cost | Starts Apify runs; pay per result; empty runs are not charged per result; `run_max_charge_usd` caps each call. Read-only toward third-party sites. |
+
+## Other ways to install
+
+From this repo instead of PyPI:
 
 ```bash
 uvx --from git+https://github.com/pandadad0214/panda-web-security-tools panda-web-security-tools
