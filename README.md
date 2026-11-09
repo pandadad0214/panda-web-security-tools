@@ -4,6 +4,8 @@
 
 Give Claude, Cursor or any MCP client 6 site, email and agent-safety tools: SPF/DKIM/DMARC audits, AI search and SEO checks, page change monitoring, hidden prompt-injection scans, bulk domain expiry and broken links. Each tool runs one public-data Apify Actor on your own Apify account and is priced per result (the hidden AI instructions scanner is free). Part of the [Panda Federation](https://github.com/pandadad0214/panda-federation-tools) toolkit (36 tools in four focused servers).
 
+[![PyPI](https://img.shields.io/pypi/v/panda-web-security-tools)](https://pypi.org/project/panda-web-security-tools/)
+[![Latest Release](https://img.shields.io/github/v/release/pandadad0214/panda-web-security-tools?label=latest%20release)](https://github.com/pandadad0214/panda-web-security-tools/releases/latest)
 [![Umbrella](https://img.shields.io/badge/index-panda--federation--tools-blue)](https://github.com/pandadad0214/panda-federation-tools)
 [![Apify Store](https://img.shields.io/badge/Apify_Store-pandadad0214-00a3ff)](https://apify.com/pandadad0214)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
@@ -11,15 +13,15 @@ Give Claude, Cursor or any MCP client 6 site, email and agent-safety tools: SPF/
 ## How to use this
 
 ```bash
-uvx --from panda-federation-tools panda-web-security-tools
+uvx panda-web-security-tools
 ```
 
 1. **Get a free Apify token** at [console.apify.com/settings/integrations](https://console.apify.com/settings/integrations) (the free plan includes $5 of monthly credit) and install [uv](https://docs.astral.sh/uv/).
-2. **Add the server to your MCP client:** command `uvx`, args `["--from", "panda-federation-tools", "panda-web-security-tools"]`, env `APIFY_TOKEN` (Cursor JSON below).
+2. **Add the server to your MCP client:** command `uvx`, args `["panda-web-security-tools"]`, env `APIFY_TOKEN` (Cursor JSON below).
 3. **Ask in plain words**, e.g. "Audit the email security of acme.com and its three competitors and list the DNS fixes." Start with one or two inputs and read the `summary` / `agentSummary` line before widening.
 
 ```json
-{"mcpServers": {"panda-web-security-tools": {"command": "uvx", "args": ["--from", "panda-federation-tools", "panda-web-security-tools"], "env": {"APIFY_TOKEN": "apify_api_YOUR_TOKEN"}}}}
+{"mcpServers": {"panda-web-security-tools": {"command": "uvx", "args": ["panda-web-security-tools"], "env": {"APIFY_TOKEN": "apify_api_YOUR_TOKEN"}}}}
 ```
 
 ## For AI agents
@@ -29,7 +31,7 @@ uvx --from panda-federation-tools panda-web-security-tools
 | Purpose | Focused MCP server with 6 site, email and agent-safety tools: SPF/DKIM/DMARC audits, AI search and SEO checks, page change monitoring, hidden prompt-injection scans, bulk domain expiry and broken links. |
 | Use when | A task needs a read-only audit of public DNS, web pages or links: email spoofing risk, AI/SEO readiness, page changes, hidden AI instructions, domain expiry or dead links. |
 | Do not use when | You need penetration testing or logged-in scans (not offered), or the task is research (`panda-research-tools`), funding (`panda-public-funding-tools`) or leads (`panda-leads-tools`). |
-| Install | `uvx --from panda-federation-tools panda-web-security-tools` (stdio, Python 3.11+) |
+| Install | `uvx panda-web-security-tools` (stdio, Python 3.11+) |
 | Auth | `APIFY_TOKEN` env var; runs bill to that Apify account. |
 | Tools | 6, listed under [Tools](#tools-6) |
 | Outputs | JSON rows plus a one-line `summary` / `agentSummary`; Excel/CSV files on the Apify run. |
@@ -37,15 +39,21 @@ uvx --from panda-federation-tools panda-web-security-tools
 
 ## Other ways to install
 
+From the umbrella package (same tools):
+
+```bash
+uvx --from panda-federation-tools panda-web-security-tools
+```
+
 From this repo instead of PyPI:
 
 ```bash
 uvx --from git+https://github.com/pandadad0214/panda-web-security-tools panda-web-security-tools
 ```
 
-Cursor / Claude / VS Code: command `uvx`, args `["--from", "panda-federation-tools", "panda-web-security-tools"]`, env `APIFY_TOKEN`.
+Cursor / Claude / VS Code: command `uvx`, args `["panda-web-security-tools"]`, env `APIFY_TOKEN`.
 
-Official MCP Registry name for this stdio package: `io.github.pandadad0214/panda-web-security-tools` ([server.json](server.json)). That name is separate from the hosted research server `io.github.pandadad0214/panda-research-mcp`. Registry clients install the PyPI package with `uvx` after the matching version is published. The git command above stays the install path from this repo.
+Official MCP Registry name for this stdio package: `io.github.pandadad0214/panda-web-security-tools` ([server.json](server.json)). That name is separate from the hosted research server `io.github.pandadad0214/panda-research-mcp`. Registry clients install the PyPI package with `uvx panda-web-security-tools`. The git command above stays the install path from this repo.
 
 ## Tools (6)
 
