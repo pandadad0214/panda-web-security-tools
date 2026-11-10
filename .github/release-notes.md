@@ -8,6 +8,9 @@ uvx panda-web-security-tools@{{VERSION}}
 - Official MCP Registry name: `io.github.pandadad0214/panda-web-security-tools`.
 
 ### Added
-- First PyPI and Official MCP Registry release of this focused domain server ({{VERSION}}).
+- `rss_feed_monitor`. This server now has 7 tools.
+
+### Changed
+- Syncs with panda-federation-tools 1.8.0 (40 tools across four focused servers). Requires `panda-federation-tools>=1.8.0,<2`.
 
 Full docs: [README](https://github.com/pandadad0214/panda-web-security-tools#readme).

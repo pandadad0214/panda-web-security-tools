@@ -4,7 +4,7 @@ Focused MCP server for site, email, and agent safety checks from public data.
 
 ## When to use
 - Audit SPF/DKIM/DMARC or AI/SEO readiness for a domain
-- Monitor website changes, scan for hidden AI instructions
+- Monitor website changes, scan for hidden AI instructions, or watch RSS/Atom feeds
 - Bulk WHOIS/expiry checks or broken-link checks
 
 ## When not to use

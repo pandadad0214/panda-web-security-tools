@@ -2,7 +2,7 @@
 
 <!-- mcp-name: io.github.pandadad0214/panda-web-security-tools -->
 
-Give Claude, Cursor or any MCP client 6 site, email and agent-safety tools: SPF/DKIM/DMARC audits, AI search and SEO checks, page change monitoring, hidden prompt-injection scans, bulk domain expiry and broken links. Each tool runs one public-data Apify Actor on your own Apify account and is priced per result (the hidden AI instructions scanner is free). Part of the [Panda Federation](https://github.com/pandadad0214/panda-federation-tools) toolkit (36 tools in four focused servers).
+Give Claude, Cursor or any MCP client 7 site, email and agent-safety tools: SPF/DKIM/DMARC audits, AI search and SEO checks, page change monitoring, hidden prompt-injection scans, bulk domain expiry, broken links and RSS/Atom feed monitoring. Each tool runs one public-data Apify Actor on your own Apify account and is priced per result (the hidden AI instructions scanner is free). Part of the [Panda Federation](https://github.com/pandadad0214/panda-federation-tools) toolkit (40 tools in four focused servers).
 
 [![PyPI](https://img.shields.io/pypi/v/panda-web-security-tools)](https://pypi.org/project/panda-web-security-tools/)
 [![Latest Release](https://img.shields.io/github/v/release/pandadad0214/panda-web-security-tools?label=latest%20release)](https://github.com/pandadad0214/panda-web-security-tools/releases/latest)
@@ -36,12 +36,12 @@ uvx panda-web-security-tools
 
 | Field | Value |
 | --- | --- |
-| Purpose | Focused MCP server with 6 site, email and agent-safety tools: SPF/DKIM/DMARC audits, AI search and SEO checks, page change monitoring, hidden prompt-injection scans, bulk domain expiry and broken links. |
-| Use when | A task needs a read-only audit of public DNS, web pages or links: email spoofing risk, AI/SEO readiness, page changes, hidden AI instructions, domain expiry or dead links. |
+| Purpose | Focused MCP server with 7 site, email and agent-safety tools: SPF/DKIM/DMARC audits, AI search and SEO checks, page change monitoring, hidden prompt-injection scans, bulk domain expiry, broken links and RSS/Atom feed monitoring. |
+| Use when | A task needs a read-only audit of public DNS, web pages, links or feeds: email spoofing risk, AI/SEO readiness, page changes, hidden AI instructions, domain expiry, dead links or new RSS/Atom items. |
 | Do not use when | You need penetration testing or logged-in scans (not offered), or the task is research (`panda-research-tools`), funding (`panda-public-funding-tools`) or leads (`panda-leads-tools`). |
 | Install | `uvx panda-web-security-tools` (stdio, Python 3.11+) |
 | Auth | `APIFY_TOKEN` env var; runs bill to that Apify account. |
-| Tools | 6, listed under [Tools](#tools-6) |
+| Tools | 7, listed under [Tools](#tools-7) |
 | Outputs | JSON rows plus a one-line `summary` / `agentSummary`; Excel/CSV files on the Apify run. |
 | Side effects and cost | Starts Apify runs; pay per result; empty runs are not charged per result; `run_max_charge_usd` caps each call. Read-only toward third-party sites. |
 
@@ -73,7 +73,7 @@ gemini extensions install https://github.com/pandadad0214/panda-web-security-too
 
 The extension prompts for `APIFY_TOKEN` on install and launches the server with `uvx panda-web-security-tools`. Gallery listing is automatic once this public repo carries the `gemini-cli-extension` topic and a root `gemini-extension.json` (crawled daily).
 
-## Tools (6)
+## Tools (7)
 
 - `email_domain_security_checker`
 - `ai_search_seo_audit`
@@ -81,14 +81,15 @@ The extension prompts for `APIFY_TOKEN` on install and launches the server with 
 - `hidden_ai_instructions_scanner`
 - `bulk_domain_whois_expiry`
 - `broken_link_checker`
+- `rss_feed_monitor`
 
 Each tool runs one Apify Actor on your account. Empty runs are not charged per result; every call is capped by `run_max_charge_usd`. Full schemas and prices: [umbrella README](https://github.com/pandadad0214/panda-federation-tools#domain-tool-lists).
 
 ## Sibling domain servers
 
-- [`panda-research-tools`](https://github.com/pandadad0214/panda-research-tools) — Scholarly integrity and papers: citation checks, literature and PubMed search, academic experts, PDF tables, Wayback Machine snapshots.
-- [`panda-public-funding-tools`](https://github.com/pandadad0214/panda-public-funding-tools) — US federal money, filings and safety monitors: grants, contracts, SBIR/STTR topics, SEC financials, clinical trials, Federal Register, recalls, VIN decode.
-- [`panda-leads-tools`](https://github.com/pandadad0214/panda-leads-tools) — Public leads and enrichment: NPI providers, podcasts, local businesses, hiring signals, website enrichment, team pages, topic trends, trucking carriers, IRS nonprofits, building permits, new Florida, Texas and New York businesses, H-1B visa sponsors, EU tenders.
+- [`panda-research-tools`](https://github.com/pandadad0214/panda-research-tools) — Scholarly integrity and papers: citation checks, literature and PubMed search, academic experts, PDF tables, Wayback Machine snapshots, topic trends.
+- [`panda-public-funding-tools`](https://github.com/pandadad0214/panda-public-funding-tools) — Public money, filings and safety monitors: grants, contracts, SAM.gov bids, SBIR/STTR topics, SEC financials, clinical trials, Federal Register, recalls, VIN decode, EU tenders.
+- [`panda-leads-tools`](https://github.com/pandadad0214/panda-leads-tools) — Public leads and enrichment: NPI providers, podcasts, local businesses, hiring signals, website enrichment, team pages, trucking carriers, IRS nonprofits, building permits, new Florida, Texas, New York and Colorado businesses, H-1B sponsors, French companies.
 
 Index / compatibility mega-server: [panda-federation-tools](https://github.com/pandadad0214/panda-federation-tools) (use only when you truly need every tool).
 
